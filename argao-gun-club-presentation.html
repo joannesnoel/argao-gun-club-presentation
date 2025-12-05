@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Argao Gun Club - First Meeting Agenda</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      background: #1a2f4b;
+    }
+
+    .presentation-container {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 80px;
+    }
+
+    .slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Title Slide */
+    .slide.title-slide {
+      background: #1a2f4b;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .slide.title-slide h1 {
+      font-size: 6rem;
+      color: #ffffff;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+    }
+
+    .slide.title-slide .divider {
+      width: 200px;
+      height: 3px;
+      background: #c9a961;
+      margin: 30px auto;
+    }
+
+    .slide.title-slide .subtitle {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .slide.title-slide .tagline {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Content Slides */
+    .slide.content-slide {
+      background: #ffffff;
+    }
+
+    .slide-header {
+      margin-bottom: 40px;
+    }
+
+    .slide-header h2 {
+      font-size: 3rem;
+      color: #1a2f4b;
+      font-family: Georgia, serif;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .slide-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slide-content ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .slide-content li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 18px;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .slide-content li:before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #c9a961;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+
+    .slide-content .intro-text {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .slide-content .center-text {
+      text-align: center;
+      font-size: 2rem;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .slide-footer {
+      margin-top: auto;
+      padding-top: 20px;
+    }
+
+    .duration {
+      font-size: 1rem;
+      color: #666;
+      font-weight: 600;
+    }
+
+    /* Navigation */
+    .nav-controls {
+      position: fixed;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      z-index: 1000;
+    }
+
+    .nav-btn {
+      background: #1a2f4b;
+      color: #ffffff;
+      border: 2px solid #c9a961;
+      padding: 12px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      font-weight: 600;
+    }
+
+    .nav-btn:hover {
+      background: #c9a961;
+      color: #1a2f4b;
+      transform: translateY(-2px);
+    }
+
+    .nav-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .slide-counter {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      background: rgba(26, 47, 75, 0.8);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      z-index: 1000;
+    }
+
+    /* Progress bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: #c9a961;
+      transition: width 0.3s ease;
+      z-index: 1001;
+    }
+
+    /* Keyboard hint */
+    .keyboard-hint {
+      position: fixed;
+      bottom: 30px;
+      right: 40px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      z-index: 1000;
+    }
+
+    .content-slide .keyboard-hint {
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Thank you slide */
+    .slide.thank-you-slide {
+      background: #1a2f4b;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .slide.thank-you-slide h2 {
+      font-size: 5rem;
+      color: #ffffff;
+      font-family: Georgia, serif;
+      margin-bottom: 20px;
+    }
+
+    .slide.thank-you-slide .divider {
+      width: 120px;
+      height: 3px;
+      background: #c9a961;
+      margin: 40px auto;
+    }
+
+    .slide.thank-you-slide p {
+      font-size: 2rem;
+      color: #ffffff;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .slide {
+        padding: 40px 50px;
+      }
+      
+      .slide.title-slide h1 {
+        font-size: 4rem;
+      }
+      
+      .slide-header h2 {
+        font-size: 2.5rem;
+      }
+      
+      .slide-content li {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        padding: 30px 30px;
+      }
+      
+      .slide.title-slide h1 {
+        font-size: 2.5rem;
+      }
+      
+      .slide.title-slide .subtitle {
+        font-size: 1.8rem;
+      }
+      
+      .slide-header h2 {
+        font-size: 2rem;
+      }
+      
+      .slide-content li {
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      .nav-controls {
+        bottom: 20px;
+        gap: 10px;
+      }
+
+      .nav-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progressBar"></div>
+  <div class="slide-counter" id="slideCounter">1 / 13</div>
+  
+  <div class="presentation-container">
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide active" data-slide="1">
+      <h1>ARGAO GUN CLUB</h1>
+      <div class="divider"></div>
+      <p class="subtitle">First Meeting Agenda</p>
+      <p class="tagline">Safety • Discipline • Integrity • Respect</p>
+    </div>
+
+    <!-- Slide 2: Opening Prayer -->
+    <div class="slide content-slide" data-slide="2">
+      <div class="slide-header">
+        <h2>1. Opening Prayer</h2>
+      </div>
+      <div class="slide-content">
+        <p class="center-text">Invocation for safety, discipline, unity, and responsible conduct.</p>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 5 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 3: Welcome & Opening Remarks -->
+    <div class="slide content-slide" data-slide="3">
+      <div class="slide-header">
+        <h2>2. Welcome & Opening Remarks</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Introduction of officers/organizers</li>
+          <li>Purpose of the Club</li>
+          <li>Core values: safety, integrity, respect, camaraderie, sportsmanship</li>
+          <li>Emphasis on compliance with all Club policies and lawful firearm ownership</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 10 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 4: Member Introductions -->
+    <div class="slide content-slide" data-slide="4">
+      <div class="slide-header">
+        <h2>3. Member Introductions</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Name, background, experience</li>
+          <li>Encourage a respectful, beginner-friendly atmosphere</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 10–15 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 5: Membership Guidelines -->
+    <div class="slide content-slide" data-slide="5">
+      <div class="slide-header">
+        <h2>4. Presentation of Membership Guidelines</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>New membership process</li>
+          <li>Probationary requirements (50% shoots, participation, conduct)</li>
+          <li>Endorsement rules</li>
+          <li>Requirements for full-fledged membership</li>
+          <li>Returning/renewal rules</li>
+          <li>Responsibilities of endorsers</li>
+          <li>Attendance expectations and consequences for non-payment</li>
+          <li>Clarification of dues and fees</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 15 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 6: Code of Conduct -->
+    <div class="slide content-slide" data-slide="6">
+      <div class="slide-header">
+        <h2>5. Code of Conduct Briefing</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Core values and expected behavior</li>
+          <li>Respect toward members, staff, and guests</li>
+          <li>Confidentiality and integrity</li>
+          <li>Prohibited acts (unsafe handling, harassment, vandalism, etc.)</li>
+          <li>Disciplinary framework: Light, Serious, and Grave Offenses</li>
+          <li>Mandatory acknowledgment by all members</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 15–20 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 7: Firearm Safety -->
+    <div class="slide content-slide" data-slide="7">
+      <div class="slide-header">
+        <h2>6. Firearm Safety Orientation</h2>
+      </div>
+      <div class="slide-content">
+        <p class="intro-text">Led by Range Officer or qualified member:</p>
+        <ul>
+          <li>Four Cardinal Rules</li>
+          <li>Range Officer authority and compliance</li>
+          <li>Designated handling areas</li>
+          <li>No alcohol/drugs policy</li>
+          <li>Safe storage, transport, and emergency procedures</li>
+          <li>Range etiquette aligned with the Code of Conduct</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 20–30 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 8: Club Activities -->
+    <div class="slide content-slide" data-slide="8">
+      <div class="slide-header">
+        <h2>7. Overview of Club Activities & Annual Expectations</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Monthly shoots and probationary attendance requirements</li>
+          <li>Practices (Tues–Sun schedule)</li>
+          <li>Training sessions and skill development</li>
+          <li>Competitions and events</li>
+          <li>Community involvement and advocacy</li>
+          <li>Updates on policies and legal changes</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 15 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 9: Committees -->
+    <div class="slide content-slide" data-slide="9">
+      <div class="slide-header">
+        <h2>8. Formation of Committees</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Safety Committee</li>
+          <li>Membership & Screening Committee</li>
+          <li>Events & Logistics Committee</li>
+          <li>Communications & Outreach Committee</li>
+        </ul>
+        <p class="intro-text" style="margin-top: 30px;">(Clarify responsibilities based on the Guidelines & Code)</p>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 10–15 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 10: Administrative Matters -->
+    <div class="slide content-slide" data-slide="10">
+      <div class="slide-header">
+        <h2>9. Administrative Matters</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Submission of IDs and LTOPF</li>
+          <li>Application forms and initial payments</li>
+          <li>Attendance tracking</li>
+          <li>Voting procedures for future membership approvals</li>
+          <li>Next steps for probationary applicants</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 10 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 11: Open Forum -->
+    <div class="slide content-slide" data-slide="11">
+      <div class="slide-header">
+        <h2>10. Open Forum</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Questions on the guidelines and code</li>
+          <li>Suggestions for activities and practices</li>
+          <li>Concerns or clarifications</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 10 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 12: Closing Remarks -->
+    <div class="slide content-slide" data-slide="12">
+      <div class="slide-header">
+        <h2>11. Closing Remarks & Next Steps</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Summary of key agreements</li>
+          <li>Reminders about safety, conduct, and compliance</li>
+          <li>Next meeting date and upcoming shoots/practices</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 5 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 13: Thank You -->
+    <div class="slide thank-you-slide" data-slide="13">
+      <h2>Thank You</h2>
+      <div class="divider"></div>
+      <p>Building a Safe and Responsible Community</p>
+    </div>
+  </div>
+
+  <div class="nav-controls">
+    <button class="nav-btn" id="prevBtn" onclick="previousSlide()">← Previous</button>
+    <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+  </div>
+
+  <div class="keyboard-hint">Use arrow keys or click buttons to navigate</div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 13;
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const counter = document.getElementById('slideCounter');
+      const progressBar = document.getElementById('progressBar');
+
+      if (n > totalSlides) currentSlide = totalSlides;
+      if (n < 1) currentSlide = 1;
+      else currentSlide = n;
+
+      slides.forEach(slide => slide.classList.remove('active'));
+      slides[currentSlide - 1].classList.add('active');
+
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+
+      counter.textContent = `${currentSlide} / ${totalSlides}`;
+      
+      const progress = ((currentSlide - 1) / (totalSlides - 1)) * 100;
+      progressBar.style.width = progress + '%';
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function previousSlide() {
+      showSlide(currentSlide - 1);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        previousSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        showSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        showSlide(totalSlides);
+      }
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+
+    function handleSwipe() {
+      if (touchEndX < touchStartX - 50) nextSlide();
+      if (touchEndX > touchStartX + 50) previousSlide();
+    }
+
+    // Initialize
+    showSlide(1);
+  </script>
+</body>
+</html>
