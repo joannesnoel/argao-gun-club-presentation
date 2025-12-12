@@ -37,7 +37,7 @@
       pointer-events: none;
       display: flex;
       flex-direction: column;
-      padding: 60px 80px;
+      padding: 60px 80px 100px 80px;
     }
 
     .slide.active {
@@ -101,7 +101,29 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
+      overflow-y: auto;
+      padding-bottom: 20px;
+      padding-right: 10px;
+    }
+
+    /* Scrollbar styling */
+    .slide-content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .slide-content::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+
+    .slide-content::-webkit-scrollbar-thumb {
+      background: #c9a961;
+      border-radius: 4px;
+    }
+
+    .slide-content::-webkit-scrollbar-thumb:hover {
+      background: #1a2f4b;
     }
 
     .slide-content ul {
@@ -302,9 +324,6 @@
         font-size: 0.75rem;
       }
 
-      .slide {
-        padding-bottom: 100px;
-      }
     }
 
     /* Mobile landscape */
@@ -379,7 +398,7 @@
 </head>
 <body>
   <div class="progress-bar" id="progressBar"></div>
-  <div class="slide-counter" id="slideCounter">1 / 46</div>
+  <div class="slide-counter" id="slideCounter">1 / 49</div>
   
   <div class="presentation-container">
     <!-- Slide 1: Title -->
@@ -452,10 +471,10 @@
       </div>
       <div class="slide-content">
         <ul>
-          <li>The new membership fee is Five Thousand Pesos (₱5,000.00).</li>
+          <li>The initial membership fee is <strong>Three Thousand Pesos (₱3,000.00)</strong>.</li>
           <li>An aspiring applicant must be endorsed by an active member of the Club, or by any member of the Board of Trustees or Club Officers. The endorser is fully responsible for conducting the initial screening and providing the endorsement. If there is any objection from the general membership within one (1) week, the application shall not proceed.</li>
-          <li>Upon endorsement, the applicant must submit his/her application form and pay Two Thousand Five Hundred Pesos (₱2,500.00), representing 50% of the membership fee.</li>
-          <li>Upon compliance, the applicant shall be accepted under a probationary status for a minimum period of six (6) months.</li>
+          <li>Upon endorsement, the applicant must submit his/her application form and pay <strong>One Thousand Five Hundred Pesos (₱1,500.00)</strong>, representing 50% of the initial membership fee.</li>
+          <li>Upon compliance, the applicant shall be accepted under a <strong>probationary status for a period of three (3) months</strong>. The endorsing member assumes responsibility for the conduct of the probationary member.</li>
         </ul>
       </div>
     </div>
@@ -467,87 +486,125 @@
       </div>
       <div class="slide-content">
         <ul>
-          <li><strong>Required identification documents:</strong>
+          <li><strong>Required identification document:</strong>
             <ul style="margin-top: 10px; margin-left: 20px;">
               <li>Any valid government-issued ID</li>
-              <li>A valid and updated LTOPF (License to Own and Possess Firearms)</li>
             </ul>
           </li>
-           <li><strong>An applicant under probationary status shall not be eligible to become full-fledged in its membership until completion of the following:</strong>
+          <li><strong>To bring and use personal firearms at the range:</strong>
             <ul style="margin-top: 10px; margin-left: 20px;">
-              <li>Attendance in at least 50% of the Club's monthly shoots organized for the year</li>
-              <li>Active participation in club practices, if practicable (trainings are scheduled Tuesday–Sunday if no weekend matches are held). New members are encouraged to attend at least once a week.</li>
+              <li>Valid LTOPF (License to Own and Possess Firearms)</li>
+              <li>Valid PTCFOR (Permit to Carry Firearms Outside Residence)</li>
+            </ul>
+          </li>
+          <li><strong>Probationary members are required to:</strong>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+              <li>Attend Club activities during the 3-month probationary period</li>
+              <li>Actively participate in club practices (trainings are scheduled Tuesday–Sunday if no weekend matches are held)</li>
             </ul>
           </li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 8: New Membership (7-8) -->
+    <!-- Slide 8: Probationary Period & Full Membership -->
     <div class="slide content-slide" data-slide="8">
       <div class="slide-header">
-        <h2>New Membership (7-8)</h2>
+        <h2>Probationary Period & Full Membership</h2>
       </div>
       <div class="slide-content">
         <ul>
-          <li>Upon completion of the above requirements, and on the initiative of the member who endorsed the applicant, the Board of Directors (BOD) and Executive Committee (EXECOM) entitled to vote shall determine, by majority vote of all members present, the admission or rejection of the applicant's full-fledged membership or the extension of probationary status. If accepted as a full-fledged member, the applicant shall pay the remaining balance of Two Thousand Five Hundred Pesos (₱2,500.00).</li>
-          <li>If an applicant's full membership status is rejected, he/she shall be informed of the decision and the reasons for denial as soon as possible. If the probationary status is extended, the applicant shall be informed of the reason and the duration of the extension by either a senior member of the voting committee or the endorser.</li>
+          <li>Upon completion of the 3-month probationary period, and on the initiative of the endorsing member, the Board of Directors (BOD) and Executive Committee (EXECOM) shall determine, by majority vote, the admission or rejection of the applicant's full membership.</li>
+          <li>If accepted as a full-fledged member, the applicant shall pay the remaining balance of <strong>One Thousand Five Hundred Pesos (₱1,500.00)</strong>.</li>
+          <li>If rejected, the applicant shall be informed of the decision and reasons. The initial payment of ₱1,500.00 shall be forfeited in favor of the Club.</li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 9: New Membership (9-10) -->
+    <!-- Slide 9: Endorser Accountability -->
     <div class="slide content-slide" data-slide="9">
       <div class="slide-header">
-        <h2>New Membership (9-10)</h2>
+        <h2>Endorser Accountability</h2>
       </div>
       <div class="slide-content">
         <ul>
-          <li>The applicant shall be given the opportunity to either accept the extension or withdraw the application.</li>
-          <li>In the event of rejection of full membership (as stated in Item 7) or voluntary withdrawal of the application, the initial payment of Two Thousand Five Hundred Pesos (₱2,500.00) shall be forfeited in favor of the Club. The forfeited amount shall serve as reimbursement for the Club's expenses in maintaining the range and providing training sessions during the applicant's probationary period.</li>
+          <li>The endorsing member is accountable for the conduct of the probationary member they endorsed.</li>
+          <li>If an endorsed member commits violations of the Code of Conduct, the endorser may also face disciplinary review.</li>
+          <li>This system promotes responsible endorsement and ensures members carefully vet applicants before sponsoring them.</li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 10: New Membership (11-12) -->
+    <!-- Slide 10: Membership Termination -->
     <div class="slide content-slide" data-slide="10">
       <div class="slide-header">
-        <h2>New Membership (11-12)</h2>
+        <h2>Membership Termination</h2>
       </div>
       <div class="slide-content">
         <ul>
-          <li>To maintain the standards of the Club, the voting committee shall consider the applicant's overall conduct, relationships, professional/personal dealings with other members, and adherence to the Club's Code of Conduct, By-Laws, and objectives.</li>
-
+          <li>Grave offenses as defined in the Code of Conduct may result in immediate termination of membership.</li>
+          <li>Terminated members lose all membership privileges and may not reactivate by simply paying fees.</li>
+          <li>Terminated members may re-apply following the standard new membership process, subject to BOD approval.</li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 11: Returning / Renewal of Membership -->
+    <!-- Slide 11: Membership Fees -->
     <div class="slide content-slide" data-slide="11">
       <div class="slide-header">
-        <h2>Returning / Renewal of Membership</h2>
+        <h2>Membership Fees</h2>
       </div>
       <div class="slide-content">
         <ul>
-          <li>Non-active members may restore their active status and return to the Club only within two (2) years from the date of the last annual due paid.</li>
-          <li>Active members are required to pay annual dues and any other dues assessed by authorized officers of the Club. Members who fail to pay their annual dues for two (2) consecutive years, after due notice and demand, shall be considered "Terminated from the Club."</li>
-          <li>Returning members are required to attend at least 50% of the Club's monthly shoots organized within a year.</li>
-          <li>Returning members are encouraged to actively participate in club practices, if practicable.</li>
-          <li>Returning members must update themselves on and strictly comply with the Club's Code of Conduct and its policies and guidelines. Non-adherence or violation may be considered a "Light Offense".</li>
+          <li><strong>Initial Membership Fee: ₱3,000.00</strong> – One-time payment upon acceptance as a full-fledged member.</li>
+          <li><strong>Annual Renewal Fee: ₱1,500.00</strong> – Required each year to maintain active membership status.</li>
+          <li>Membership is valid for one (1) year from the date of payment.</li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 12: Code of Conduct Title -->
-    <div class="slide title-slide" data-slide="12">
+    <!-- Slide 12: Active Membership Benefits -->
+    <div class="slide content-slide" data-slide="12">
+      <div class="slide-header">
+        <h2>Active Membership Benefits</h2>
+      </div>
+      <div class="slide-content">
+        <p class="intro-text">Members with active (non-expired) status are entitled to:</p>
+        <ul>
+          <li>Range access during member-priority hours</li>
+          <li>Participation in club events, training, and competitions</li>
+          <li>Voting rights on club matters</li>
+          <li>Guidance and instruction from experienced members</li>
+          <li>Pro-bono legal representation (for RA 10591 cases asserting self-defense)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide 13: Expired Membership -->
+    <div class="slide content-slide" data-slide="13">
+      <div class="slide-header">
+        <h2>Expired Membership</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Members who fail to pay the <strong>annual renewal fee</strong> by the deadline will have their membership expired.</li>
+          <li>Members with expired status are <strong>not entitled</strong> to any membership benefits or facility access.</li>
+          <li><strong>Grace period:</strong> Expired members may reactivate <strong>within two (2) years</strong> by paying the current annual renewal fee of ₱1,500.00. No penalties or additional fees are required.</li>
+          <li><strong>Beyond 2 years:</strong> Members who fail to reactivate within the grace period must re-apply as a new applicant following the standard membership process.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide 14: Code of Conduct Title -->
+    <div class="slide title-slide" data-slide="14">
       <h1 style="font-size: 3.5rem;">Code of Conduct</h1>
       <div class="divider"></div>
       <p class="subtitle">Proposed – For Approval</p>
       <p class="tagline">Target Effectivity: January 1, 2026</p>
     </div>
 
-    <!-- Slide 13: Code of Conduct - Section 1 Purpose -->
-    <div class="slide content-slide" data-slide="13">
+    <!-- Slide 15: Code of Conduct - Section 1 Purpose -->
+    <div class="slide content-slide" data-slide="15">
       <div class="slide-header">
         <h2>Section 1. Purpose</h2>
       </div>
@@ -560,8 +617,8 @@
       </div>
     </div>
 
-    <!-- Slide 14: Code of Conduct - Section 2 Core Values -->
-    <div class="slide content-slide" data-slide="14">
+    <!-- Slide 16: Code of Conduct - Section 2 Core Values -->
+    <div class="slide content-slide" data-slide="16">
       <div class="slide-header">
         <h2>Section 2. Core Values</h2>
       </div>
@@ -577,8 +634,8 @@
       </div>
     </div>
 
-    <!-- Slide 15: Code of Conduct - Section 3 Scope -->
-    <div class="slide content-slide" data-slide="15">
+    <!-- Slide 17: Code of Conduct - Section 3 Scope -->
+    <div class="slide content-slide" data-slide="17">
       <div class="slide-header">
         <h2>Section 3. Scope of Application</h2>
       </div>
@@ -594,8 +651,8 @@
       </div>
     </div>
 
-    <!-- Slide 16: Code of Conduct - Section 4.1 Four Cardinal Rules -->
-    <div class="slide content-slide" data-slide="16">
+    <!-- Slide 18: Code of Conduct - Section 4.1 Four Cardinal Rules -->
+    <div class="slide content-slide" data-slide="18">
       <div class="slide-header">
         <h2>Section 4. Firearm Safety Rules</h2>
       </div>
@@ -610,8 +667,8 @@
       </div>
     </div>
 
-    <!-- Slide 17: Code of Conduct - Section 4.2-4.3 RO Authority & Handling Areas -->
-    <div class="slide content-slide" data-slide="17">
+    <!-- Slide 19: Code of Conduct - Section 4.2-4.3 RO Authority & Handling Areas -->
+    <div class="slide content-slide" data-slide="19">
       <div class="slide-header">
         <h2>Section 4. Firearm Safety Rules (cont.)</h2>
       </div>
@@ -631,8 +688,8 @@
       </div>
     </div>
 
-    <!-- Slide 18: Code of Conduct - Section 4.4-4.6 Substances, PPE, Ammo -->
-    <div class="slide content-slide" data-slide="18">
+    <!-- Slide 20: Code of Conduct - Section 4.4-4.6 Substances, PPE, Ammo -->
+    <div class="slide content-slide" data-slide="20">
       <div class="slide-header">
         <h2>Section 4. Firearm Safety Rules (cont.)</h2>
       </div>
@@ -655,8 +712,8 @@
       </div>
     </div>
 
-    <!-- Slide 19: Code of Conduct - Section 5 Respectful Behavior -->
-    <div class="slide content-slide" data-slide="19">
+    <!-- Slide 21: Code of Conduct - Section 5 Respectful Behavior -->
+    <div class="slide content-slide" data-slide="21">
       <div class="slide-header">
         <h2>Section 5. Respectful Behavior</h2>
       </div>
@@ -680,8 +737,8 @@
       </div>
     </div>
 
-    <!-- Slide 20: Code of Conduct - Section 6 Club Participation -->
-    <div class="slide content-slide" data-slide="20">
+    <!-- Slide 22: Code of Conduct - Section 6 Club Participation -->
+    <div class="slide content-slide" data-slide="22">
       <div class="slide-header">
         <h2>Section 6. Club Participation</h2>
       </div>
@@ -693,8 +750,8 @@
         </ul>
         <p class="intro-text" style="margin-top: 20px;">6.2. Probationary Requirements:</p>
         <ul>
-          <li>Probationary members must comply with attendance requirements as set forth in the Membership Guidelines</li>
-          <li>Attend at least 50% of the Club's monthly shoots and participate regularly in practice sessions</li>
+          <li>Probationary members must actively participate during their 3-month probationary period</li>
+          <li>Regular attendance in practice sessions and Club activities is expected</li>
         </ul>
         <p class="intro-text" style="margin-top: 20px;">6.3. Volunteerism:</p>
         <ul>
@@ -704,8 +761,8 @@
       </div>
     </div>
 
-    <!-- Slide 21: Code of Conduct - Section 7 Representation -->
-    <div class="slide content-slide" data-slide="21">
+    <!-- Slide 23: Code of Conduct - Section 7 Representation -->
+    <div class="slide content-slide" data-slide="23">
       <div class="slide-header">
         <h2>Section 7. Representation of the Club</h2>
       </div>
@@ -728,8 +785,8 @@
       </div>
     </div>
 
-    <!-- Slide 22: Code of Conduct - Section 8 Property & Facilities -->
-    <div class="slide content-slide" data-slide="22">
+    <!-- Slide 24: Code of Conduct - Section 8 Property & Facilities -->
+    <div class="slide content-slide" data-slide="24">
       <div class="slide-header">
         <h2>Section 8. Treatment of Property and Facilities</h2>
       </div>
@@ -753,8 +810,8 @@
       </div>
     </div>
 
-    <!-- Slide 23: Code of Conduct - Section 9 Compliance -->
-    <div class="slide content-slide" data-slide="23">
+    <!-- Slide 25: Code of Conduct - Section 9 Compliance -->
+    <div class="slide content-slide" data-slide="25">
       <div class="slide-header">
         <h2>Section 9. Compliance with Club Policies</h2>
       </div>
@@ -779,8 +836,8 @@
       </div>
     </div>
 
-    <!-- Slide 24: Code of Conduct - Section 10 Probationary Members -->
-    <div class="slide content-slide" data-slide="24">
+    <!-- Slide 26: Code of Conduct - Section 10 Probationary Members -->
+    <div class="slide content-slide" data-slide="26">
       <div class="slide-header">
         <h2>Section 10. Conduct Toward Probationary Members</h2>
       </div>
@@ -788,7 +845,7 @@
         <p class="intro-text">10.1. Mentorship and Support:</p>
         <ul>
           <li>Senior and full-fledged members are expected to mentor and support probationary members</li>
-          <li>Provide encouragement and constructive feedback to help new members develop skills</li>
+          <li>Provide encouragement and constructive feedback to help probationary members develop skills</li>
         </ul>
         <p class="intro-text" style="margin-top: 20px;">10.2. Prohibited Treatment:</p>
         <ul>
@@ -804,8 +861,8 @@
       </div>
     </div>
 
-    <!-- Slide 25: Code of Conduct - Section 11 Confidentiality -->
-    <div class="slide content-slide" data-slide="25">
+    <!-- Slide 27: Code of Conduct - Section 11 Confidentiality -->
+    <div class="slide content-slide" data-slide="27">
       <div class="slide-header">
         <h2>Section 11. Confidentiality and Integrity</h2>
       </div>
@@ -828,8 +885,8 @@
       </div>
     </div>
 
-    <!-- Slide 26: Code of Conduct - Section 12 Prohibited Acts (1) -->
-    <div class="slide content-slide" data-slide="26">
+    <!-- Slide 28: Code of Conduct - Section 12 Prohibited Acts (1) -->
+    <div class="slide content-slide" data-slide="28">
       <div class="slide-header">
         <h2>Section 12. Prohibited Acts</h2>
       </div>
@@ -851,8 +908,8 @@
       </div>
     </div>
 
-    <!-- Slide 27: Code of Conduct - Section 12 Prohibited Acts (2) -->
-    <div class="slide content-slide" data-slide="27">
+    <!-- Slide 29: Code of Conduct - Section 12 Prohibited Acts (2) -->
+    <div class="slide content-slide" data-slide="29">
       <div class="slide-header">
         <h2>Section 12. Prohibited Acts (cont.)</h2>
       </div>
@@ -865,7 +922,7 @@
         </ul>
         <p class="intro-text" style="margin-top: 20px;">12.4. Administrative Violations:</p>
         <ul>
-          <li>Non-payment of dues after due notice</li>
+          <li>Non-payment of renewal fees after due notice</li>
           <li>Falsification of membership documents or applications</li>
           <li>Unauthorized representation of the Club</li>
           <li>Disclosure of confidential Club information</li>
@@ -879,8 +936,8 @@
       </div>
     </div>
 
-    <!-- Slide 28: Code of Conduct - Section 13 Reporting Violations -->
-    <div class="slide content-slide" data-slide="28">
+    <!-- Slide 30: Code of Conduct - Section 13 Reporting Violations -->
+    <div class="slide content-slide" data-slide="30">
       <div class="slide-header">
         <h2>Section 13. Reporting Violations</h2>
       </div>
@@ -909,8 +966,8 @@
       </div>
     </div>
 
-    <!-- Slide 29: Code of Conduct - Section 14 Light Offenses -->
-    <div class="slide content-slide" data-slide="29">
+    <!-- Slide 31: Code of Conduct - Section 14 Light Offenses -->
+    <div class="slide content-slide" data-slide="31">
       <div class="slide-header">
         <h2>Section 14. Offenses and Disciplinary Actions</h2>
       </div>
@@ -933,8 +990,8 @@
       </div>
     </div>
 
-    <!-- Slide 30: Code of Conduct - Section 14 Serious Offenses -->
-    <div class="slide content-slide" data-slide="30">
+    <!-- Slide 32: Code of Conduct - Section 14 Serious Offenses -->
+    <div class="slide content-slide" data-slide="32">
       <div class="slide-header">
         <h2>Section 14. Offenses and Disciplinary Actions (cont.)</h2>
       </div>
@@ -944,7 +1001,7 @@
           <li>Repeated Light Offenses (three or more)</li>
           <li>Disrespectful or unprofessional behavior toward members, officers, or guests</li>
           <li>Unsafe firearm handling (without injury)</li>
-          <li>Non-payment of dues after first notice</li>
+          <li>Non-payment of renewal fees after first notice</li>
           <li>Failure to report damage to Club property</li>
           <li>Minor unauthorized use of Club name or logo</li>
           <li>Violation of confidentiality (minor)</li>
@@ -959,8 +1016,8 @@
       </div>
     </div>
 
-    <!-- Slide 31: Code of Conduct - Section 14 Grave Offenses -->
-    <div class="slide content-slide" data-slide="31">
+    <!-- Slide 33: Code of Conduct - Section 14 Grave Offenses -->
+    <div class="slide content-slide" data-slide="33">
       <div class="slide-header">
         <h2>Section 14. Offenses and Disciplinary Actions (cont.)</h2>
       </div>
@@ -985,8 +1042,8 @@
       </div>
     </div>
 
-    <!-- Slide 32: Code of Conduct - Section 14 Due Process & Appeals -->
-    <div class="slide content-slide" data-slide="32">
+    <!-- Slide 34: Code of Conduct - Section 14 Due Process & Appeals -->
+    <div class="slide content-slide" data-slide="34">
       <div class="slide-header">
         <h2>Section 14. Offenses and Disciplinary Actions (cont.)</h2>
       </div>
@@ -1007,8 +1064,8 @@
       </div>
     </div>
 
-    <!-- Slide 33: Code of Conduct - Section 15 & 16 -->
-    <div class="slide content-slide" data-slide="33">
+    <!-- Slide 35: Code of Conduct - Section 15 & 16 -->
+    <div class="slide content-slide" data-slide="35">
       <div class="slide-header">
         <h2>Section 15. Amendment & Section 16. Acknowledgment</h2>
       </div>
@@ -1027,8 +1084,8 @@
       </div>
     </div>
 
-    <!-- Slide 34: Firearm Safety -->
-    <div class="slide content-slide" data-slide="34">
+    <!-- Slide 36: Firearm Safety -->
+    <div class="slide content-slide" data-slide="36">
       <div class="slide-header">
         <h2>6. Firearm Safety Orientation</h2>
       </div>
@@ -1048,8 +1105,8 @@
       </div>
     </div>
 
-    <!-- Slide 35: Club Activities -->
-    <div class="slide content-slide" data-slide="35">
+    <!-- Slide 37: Club Activities -->
+    <div class="slide content-slide" data-slide="37">
       <div class="slide-header">
         <h2>7. Overview of Club Activities & Annual Expectations</h2>
       </div>
@@ -1068,8 +1125,26 @@
       </div>
     </div>
 
-    <!-- Slide 36: Committees -->
-    <div class="slide content-slide" data-slide="36">
+    <!-- Slide 38: Member Benefits -->
+    <div class="slide content-slide" data-slide="38">
+      <div class="slide-header">
+        <h2>Member Benefits</h2>
+      </div>
+      <div class="slide-content">
+        <p class="intro-text">Members enjoy the following benefits:</p>
+        <ul>
+          <li><strong>Exclusive firearm privilege</strong> – Bring and use personal firearms and ammunition within the training facility. Reserved only for official members with valid LTOPF and PTCFOR.</li>
+          <li><strong>Priority range access</strong> – Best time slots: 8 AM–10 AM and 3 PM–5 PM for comfortable, productive practice. (Walk-in guests and tourists: 10 AM–3 PM)</li>
+          <li><strong>Guidance and instruction</strong> – Learn from experienced shooters to improve skill, awareness, and discipline.</li>
+          <li><strong>Training, events, and competitions</strong> – Challenge yourself and participate in club activities.</li>
+          <li><strong>Respectful community</strong> – A like-minded group where safety, sportsmanship, and responsibility are shared values.</li>
+          <li><strong>Pro-bono legal representation</strong> – Access to legal defense in litigation stemming from alleged violations of RA 10591 (Comprehensive Firearms and Ammunition Regulation Act), provided the member is asserting the right of self-defense.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slide 39: Committees -->
+    <div class="slide content-slide" data-slide="39">
       <div class="slide-header">
         <h2>8. Formation of Committees</h2>
       </div>
@@ -1087,18 +1162,18 @@
       </div>
     </div>
 
-    <!-- Slide 37: Administrative Matters -->
-    <div class="slide content-slide" data-slide="37">
+    <!-- Slide 40: Administrative Matters -->
+    <div class="slide content-slide" data-slide="40">
       <div class="slide-header">
         <h2>9. Administrative Matters</h2>
       </div>
       <div class="slide-content">
         <ul>
-          <li>Submission of IDs and LTOPF</li>
+          <li>Submission of valid government-issued ID</li>
           <li>Application forms and initial payments</li>
           <li>Attendance tracking</li>
           <li>Voting procedures for future membership approvals</li>
-          <li>Next steps for probationary applicants</li>
+          <li>Next steps for probationary members</li>
         </ul>
       </div>
       <div class="slide-footer">
@@ -1106,33 +1181,16 @@
       </div>
     </div>
 
-    <!-- Slide 38: Open Forum -->
-    <div class="slide content-slide" data-slide="38">
-      <div class="slide-header">
-        <h2>10. Open Forum</h2>
-      </div>
-      <div class="slide-content">
-        <ul>
-          <li>Questions on the guidelines and code</li>
-          <li>Suggestions for activities and practices</li>
-          <li>Concerns or clarifications</li>
-        </ul>
-      </div>
-      <div class="slide-footer">
-        <p class="duration">Duration: 10 minutes</p>
-      </div>
-    </div>
-
-    <!-- Slide 39: 2026 Plans Title -->
-    <div class="slide title-slide" data-slide="39">
+    <!-- Slide 41: 2026 Plans Title -->
+    <div class="slide title-slide" data-slide="41">
       <h1 style="font-size: 3.5rem;">2026 CLUB PLANS & ACTIVITY FRAMEWORK</h1>
       <div class="divider"></div>
       <p class="subtitle">Building for the Future</p>
       <p class="tagline">Infrastructure • Training • Community</p>
     </div>
 
-    <!-- Slide 40: Shooting Range Development Goals -->
-    <div class="slide content-slide" data-slide="40">
+    <!-- Slide 42: Shooting Range Development Goals -->
+    <div class="slide content-slide" data-slide="42">
       <div class="slide-header">
         <h2>I. Shooting Range Development Goals</h2>
       </div>
@@ -1148,8 +1206,8 @@
       </div>
     </div>
 
-    <!-- Slide 41: 2026 Activity Schedule -->
-    <div class="slide content-slide" data-slide="41">
+    <!-- Slide 43: 2026 Activity Schedule -->
+    <div class="slide content-slide" data-slide="43">
       <div class="slide-header">
         <h2>II. 2026 Activity Schedule & Member Programs</h2>
       </div>
@@ -1162,14 +1220,14 @@
         <p class="intro-text" style="margin-top: 30px;"><strong>Key 2026 Programs:</strong></p>
         <ul>
           <li>Quarterly Safe Handling & Movement Training</li>
-          <li>1-for-1 Steel Challenge (Quarterly)</li>
-          <li>Legal Workshops & Gun-Law Forums (Quarterly)</li>
+          <li>Quarterly 1-for-1 Steel Challenge</li>
+          <li>Quarterly Legal Workshops & Gun-Law Forums</li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 42: Safe Handling & Movement Training -->
-    <div class="slide content-slide" data-slide="42">
+    <!-- Slide 44: Safe Handling & Movement Training -->
+    <div class="slide content-slide" data-slide="44">
       <div class="slide-header">
         <h2>1. Quarterly Safe Handling & Movement Training</h2>
       </div>
@@ -1183,25 +1241,25 @@
       </div>
     </div>
 
-    <!-- Slide 43: 1-for-1 Steel Challenge -->
-    <div class="slide content-slide" data-slide="43">
+    <!-- Slide 45: 1-for-1 Steel Challenge -->
+    <div class="slide content-slide" data-slide="45">
       <div class="slide-header">
-        <h2>2. 1-for-1 Steel Challenge (Quarterly)</h2>
+        <h2>2. Quarterly 1-for-1 Steel Challenge</h2>
       </div>
       <div class="slide-content">
         <ul>
           <li>25 rounds · 25 steel targets (one round per target)</li>
           <li>Accuracy-first discipline—no wasted shots</li>
           <li>Improves precision, control, and mental pacing</li>
-          <li>Quarterly recognition for top performers</li>
+          <li>Recognition for top performers each quarter</li>
         </ul>
       </div>
     </div>
 
-    <!-- Slide 44: Legal Workshops -->
-    <div class="slide content-slide" data-slide="44">
+    <!-- Slide 46: Legal Workshops -->
+    <div class="slide content-slide" data-slide="46">
       <div class="slide-header">
-        <h2>3. Legal Workshops & Gun-Law Forums (Quarterly)</h2>
+        <h2>3. Quarterly Legal Workshops & Gun-Law Forums</h2>
       </div>
       <div class="slide-content">
         <ul>
@@ -1213,8 +1271,25 @@
       </div>
     </div>
 
-    <!-- Slide 45: Closing Remarks -->
-    <div class="slide content-slide" data-slide="45">
+    <!-- Slide 47: Open Forum -->
+    <div class="slide content-slide" data-slide="47">
+      <div class="slide-header">
+        <h2>10. Open Forum</h2>
+      </div>
+      <div class="slide-content">
+        <ul>
+          <li>Questions on the guidelines and code</li>
+          <li>Suggestions for activities and practices</li>
+          <li>Concerns or clarifications</li>
+        </ul>
+      </div>
+      <div class="slide-footer">
+        <p class="duration">Duration: 10 minutes</p>
+      </div>
+    </div>
+
+    <!-- Slide 48: Closing Remarks -->
+    <div class="slide content-slide" data-slide="48">
       <div class="slide-header">
         <h2>11. Closing Remarks & Next Steps</h2>
       </div>
@@ -1230,8 +1305,8 @@
       </div>
     </div>
 
-    <!-- Slide 46: Thank You -->
-    <div class="slide thank-you-slide" data-slide="46">
+    <!-- Slide 49: Thank You -->
+    <div class="slide thank-you-slide" data-slide="49">
       <h2>Thank You</h2>
       <div class="divider"></div>
       <p>Building a Safe and Responsible Community</p>
@@ -1247,7 +1322,7 @@
 
   <script>
     let currentSlide = 1;
-    const totalSlides = 46;
+    const totalSlides = 49;
 
     function showSlide(n) {
       const slides = document.querySelectorAll('.slide');
